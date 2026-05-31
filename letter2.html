@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A Letter For My Love ❤️</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:linear-gradient(135deg,#ffe6eb,#fff0f5);
+    font-family:'Segoe UI',sans-serif;
+    overflow:hidden;
+}
+
+.container{
+    text-align:center;
+}
+
+.envelope{
+    position:relative;
+    width:320px;
+    height:220px;
+    cursor:pointer;
+    transition:all 1s ease;
+}
+
+.envelope-body{
+    position:absolute;
+    width:100%;
+    height:100%;
+    background:#ff6b81;
+    border-radius:0 0 12px 12px;
+    box-shadow:0 15px 35px rgba(0,0,0,0.2);
+}
+
+.flap{
+    position:absolute;
+    width:0;
+    height:0;
+    border-left:160px solid transparent;
+    border-right:160px solid transparent;
+    border-top:110px solid #ff8fa3;
+    transform-origin:top;
+    transition:transform 1s ease;
+    z-index:5;
+}
+
+.note{
+    margin-top:25px;
+    color:#666;
+    font-size:18px;
+    font-weight:600;
+}
+
+.letter{
+    position:fixed;
+    top:50%;
+    left:50%;
+    transform:translate(-50%, -50%) scale(0.5);
+    width:90%;
+    max-width:600px;
+    max-height:80vh;
+    background:white;
+    border-radius:20px;
+    padding:35px;
+    overflow-y:auto;
+    box-shadow:0 20px 50px rgba(0,0,0,0.25);
+    opacity:0;
+    visibility:hidden;
+    transition:all 1s ease;
+    z-index:100;
+}
+
+.letter.show{
+    opacity:1;
+    visibility:visible;
+    transform:translate(-50%, -50%) scale(1);
+}
+
+h1{
+    color:#ff4d6d;
+    margin-bottom:20px;
+}
+
+.message{
+    color:#555;
+    font-size:18px;
+    line-height:1.8;
+    text-align:left;
+}
+
+.signature{
+    margin-top:25px;
+    color:#ff4d6d;
+    font-weight:bold;
+    font-size:20px;
+}
+
+.heart{
+    position:absolute;
+    font-size:25px;
+    animation:floatUp linear forwards;
+    pointer-events:none;
+}
+
+@keyframes floatUp{
+    from{
+        transform:translateY(0) scale(1);
+        opacity:1;
+    }
+    to{
+        transform:translateY(-900px) scale(2);
+        opacity:0;
+    }
+}
+
+.closeBtn{
+    margin-top:20px;
+    padding:10px 20px;
+    border:none;
+    border-radius:30px;
+    background:#ff4d6d;
+    color:white;
+    cursor:pointer;
+    font-size:16px;
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+```
+<div class="envelope" id="envelope" onclick="openLetter()">
+
+    <div class="flap"></div>
+
+    <div class="envelope-body"></div>
+
+</div>
+
+<div class="note">
+    💌 Hi Shreyash !! 
+<br>DO NOT OPEN UNLESS YOU WANT TO SMILE 📩</br>
+    (Click to Open)
+</div>
+```
+
+</div>
+
+<div class="letter" id="letter">
+
+```
+<h1>To My Favorite Person ❤️</h1>
+
+<div class="message">
+
+    Dear Pillya,
+
+    <br><br>
+
+    If you're reading this, it means you opened the envelope... and honestly, that already made me smile.
+
+    <br><br>
+
+    I just wanted to remind you of something simple but important:
+
+    <br><br>
+
+    ❤️ You are loved more than you know.<br>
+    ❤️ You are appreciated more than you realize.<br>
+    ❤️ You make my days brighter just by being part of them.
+
+    <br><br>
+
+    Thank you for being my comfort during difficult days, my laughter during happy moments, and my favorite person to share life with.
+
+    <br><br>
+
+    No matter how busy life gets, I hope you never forget how special you are to me.
+
+    <br><br>
+
+    If I had one wish right now, it would be to give you the biggest hug and tell you how lucky I feel to have you in my life.
+
+    <br><br>
+
+    Thank you for every smile, every call, every effort, and every little thing you do.
+
+    <br><br> I Love youuuuuuu......❤️❤️❤️❤️
+  You are my favorite chapter and my favorite future.
+
+</div>
+
+<div class="signature">
+    ❤️ Forever Yours ❤️
+</div>
+
+<button class="closeBtn" onclick="closeLetter()">
+    Close ❤️
+</button>
+```
+
+</div>
+
+<script>
+
+function openLetter(){
+
+    document.querySelector('.flap').style.transform='rotateX(180deg)';
+
+    setTimeout(()=>{
+        document.getElementById('envelope').style.opacity='0';
+    },700);
+
+    setTimeout(()=>{
+        document.getElementById('letter').classList.add('show');
+    },1000);
+
+    for(let i=0;i<50;i++){
+
+        let heart=document.createElement('div');
+
+        heart.className='heart';
+        heart.innerHTML='❤️';
+
+        heart.style.left=Math.random()*window.innerWidth+'px';
+        heart.style.top=(window.innerHeight-50)+'px';
+
+        heart.style.animationDuration=
+        (3+Math.random()*3)+'s';
+
+        document.body.appendChild(heart);
+
+        setTimeout(()=>{
+            heart.remove();
+        },6000);
+    }
+}
+
+function closeLetter(){
+    document.getElementById('letter').classList.remove('show');
+}
+
+</script>
+
+</body>
+</html>
